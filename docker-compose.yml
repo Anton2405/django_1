@@ -6,7 +6,7 @@ services:
     container_name: django
     command: python manage.py runserver 0.0.0.0:8000
     ports:
-      - 8000:8000
+      - "8000:8000"
     volumes:
       - .:/usr/src/app
     depends_on:
@@ -19,3 +19,8 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     container_name: pgdb
+    volumes:
+      - pgdbdata:/var/lib/postressql/data
+
+volumes:
+  pgdbdata: null
